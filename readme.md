@@ -1,14 +1,35 @@
 # Vision GNN
 By Kai Han, Yunhe Wang, Jianyuan Guo, Yehui Tang and Enhua Wu. NeurIPS 2022. [[arXiv link]](https://arxiv.org/abs/2206.00272)
 
-![image](../fig/vig.png)
+![image](./fig/vig.png)
 
 ## Requirements
-Pytorch 1.7.0,
-timm 0.3.2,
-torchprofile 0.0.4,
-apex
 
+- Python 3.7
+* PyTorch 1.7.0
+* timm 0.3.2
+* torchprofile 0.0.4
+* Numpy
+* tqdm
+* pandas
+* matplotlib
+* wandb (optional)
+* apex (optional)
+
+### Visualization of Image and Heatmap
+
+<table>
+  <tr>
+    <td>Raw Image</td>
+     <td>Grad-Cam HearMap</td>
+  </tr>
+  <tr>
+    <td><img src="./fig/ILSVRC2012_val_00000075.JPEG" width=425 ></td>
+    <td><img src="./fig/cam.jpg" width=300></td>
+  </tr>
+ </table>
+
+More details can be checked in [Notebook](inference.ipynb).
 ## Pretrained models
 
 - ViG
@@ -60,5 +81,23 @@ python -m torch.distributed.launch --nproc_per_node=8 train.py /path/to/imagenet
 }
 ```
 
-## Acknowledgement
+## Acknowledgements
 This repo partially uses code from [deep_gcns_torch](https://github.com/lightaime/deep_gcns_torch) and [timm](https://github.com/rwightman/pytorch-image-models).
+Our code is modified and adapted on these great repositories:
+- [Vision_GNN](https://github.com/huawei-noah/Efficient-AI-Backbones/tree/master/vig_pytorch) (NeurIPS 2022)
+- [deep_gcns_torch](https://github.com/lightaime/deep_gcns_torch) (ICCV 2019)
+- [timm](https://github.com/rwightman/pytorch-image-models)
+- [PyTorch Metric Learning](https://github.com/KevinMusgrave/pytorch-metric-learning)
+## Citation
+
+If you use this method or this code in your research, please cite as:
+
+```
+@inproceedings{han2022vig,
+  title={Vision GNN: An Image is Worth Graph of Nodes}, 
+  author={Kai Han and Yunhe Wang and Jianyuan Guo and Yehui Tang and Enhua Wu},
+  booktitle={NeurIPS},
+  year={2022}
+}
+```
+
